@@ -63,15 +63,15 @@ export default function Header() {
         }
     }
 
-    return(     
+    return(
         <HStack px='8' py='2'>
             <Flex w='100%'>
-                <img src={logo} alt='Little Lemon Logo' width='202px' height='74px'/>  
+                <img src={logo} alt='Little Lemon Logo' width='202px' height='74px'/>
             <Spacer/>
             <nav>
                 <HeaderOption/>
             </nav>
             </Flex>
-        </HStack>       
+        </HStack>
     )
 }
