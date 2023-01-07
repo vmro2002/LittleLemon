@@ -1,7 +1,7 @@
 import './App.css';
 import {ChakraProvider} from '@chakra-ui/react'
 import Header from './components/Header'
-//import Hero from './components/Hero'
+import Hero from './components/Hero'
 import '@fontsource/karla'
 import '@fontsource/markazi-text'
 import theme from './theme'
@@ -10,9 +10,9 @@ import theme from './theme'
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <nav><Header/></nav>
+      <Header/>
       <main>
-        
+        <Hero/>  
       </main>
       <footer></footer>
     </ChakraProvider>
