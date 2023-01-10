@@ -20,7 +20,7 @@ export default function Hero(){
                     <Text fontFamily='Karla' fontSize='1em' color='white' >Lorem ipsum dolor sit amet, consectetur<br/>adipiscing elit, sed do eiusmod tempor<br/>incididunt ut labore et dolore magna aliqua.</Text>
                 </Stack>
                 <Button colorScheme='yellow'>Reserve a Table</Button>
-            </VStack>       
+            </VStack>
             <HeroPhoto/>
        </Stack>
     )

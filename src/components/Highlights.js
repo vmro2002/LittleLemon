@@ -43,7 +43,7 @@ export default function Highlights(){
                                 <Text fontFamily='Karla' fontSize='1em' px='6'>Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil. </Text>
                             </VStack>
                             <Button colorScheme='black' variant='link' pl='4' pt='5'>
-                                    Order a delivery 
+                                    Order a delivery
                             </Button>
                         </CardBody>
                     </Card>
@@ -59,7 +59,7 @@ export default function Highlights(){
                                 <Text fontFamily='Karla' fontSize='1em' px='6'>This comes straight from grandma’s recipe book, every last ingredient has been sourced and is as authentic as can be imagined.</Text>
                             </VStack>
                             <Button colorScheme='black' variant='link' pl='4' pt='5'>
-                                    Order a delivery 
+                                    Order a delivery
                             </Button>
                         </CardBody>
                     </Card>
