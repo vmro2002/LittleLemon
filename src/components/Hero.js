@@ -1,6 +1,7 @@
 import React from 'react'
 import {Stack, Button, useMediaQuery, Text, VStack, Image} from '@chakra-ui/react'
 import photo from '../images/heropic.jpg'
+import {Link} from 'react-router-dom'
 
 
 
@@ -19,7 +20,7 @@ export default function Hero(){
                     <Text fontFamily='Markazi Text' fontWeight='medium' fontSize='2.5em' color='white'>Chicago</Text><br/><br/>
                     <Text fontFamily='Karla' fontSize='1em' color='white' >Lorem ipsum dolor sit amet, consectetur<br/>adipiscing elit, sed do eiusmod tempor<br/>incididunt ut labore et dolore magna aliqua.</Text>
                 </Stack>
-                <Button colorScheme='yellow'>Reserve a Table</Button>
+                <Link to='/Reservations'><Button colorScheme='yellow'>Reserve a Table</Button></Link>
             </VStack>
             <HeroPhoto/>
        </Stack>

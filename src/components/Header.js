@@ -9,17 +9,30 @@ import {
     MenuItem,
     MenuDivider,
   } from '@chakra-ui/react'
+import {Link} from 'react-router-dom'
 
 export default function Header() {
     const [isLargerThan800] = useMediaQuery('(min-width: 1000px)')
+
+    const handleClick = (anchor) => () => {
+        const id = anchor;
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      };
+
     const HeaderOption = () => {
         if (isLargerThan800) {
             return(
                 <HStack spacing={8} pt='3'>
-                    <a href='#/.'><Text fontFamily='karla' fontWeight='bold' fontSize='1.2em'>Home</Text></a>
-                    <a href='#/.'><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>About</Text></a>
+                    <Link to='/'><a href='#/Home' onClick={handleClick("Home")}><Text fontFamily='karla' fontWeight='bold' fontSize='1.2em'>Home</Text></a></Link>
+                    <a href='#/About' onClick={handleClick("About")}><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>About</Text></a>
                     <a href='#/.'><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>Menu</Text></a>
-                    <a href='#/.'><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>Reservations</Text></a>
+                    <Link to='/Reservations'><a href='#/Reservations'><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>Reservations</Text></a></Link>
                     <a href='#/.'><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>Order Online</Text></a>
                     <a href='#/.'><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>Log In</Text></a>
                 </HStack>
@@ -34,11 +47,13 @@ export default function Header() {
                       >
                        <Center> <img src={icon} alt='hamburger menu icon' size='xs'/></Center></MenuButton>
                       <MenuList>
-                        <MenuItem>
+                    <Link to='/'>
+                        <MenuItem onClick={handleClick("Home")}>
                             <a href='#/.'><Text fontFamily='karla' fontWeight='bold' fontSize='1em'>Home</Text></a>
                         </MenuItem>
+                    </Link>
                             <MenuDivider/>
-                        <MenuItem>
+                        <MenuItem  onClick={handleClick("About")}>
                             <a href='#/.'><Text fontFamily='karla' fontWeight='bold' fontSize='1em'>About</Text></a>
                         </MenuItem>
                             <MenuDivider/>
@@ -46,9 +61,11 @@ export default function Header() {
                             <a href='#/.'><Text fontFamily='karla' fontWeight='bold' fontSize='1em'>Menu</Text></a>
                         </MenuItem>
                             <MenuDivider/>
+                    <Link to='/Reservations'>
                         <MenuItem>
                             <a href='#/.'><Text fontFamily='karla' fontWeight='bold' fontSize='1em'>Reservations</Text></a>
                         </MenuItem>
+                    </Link>
                             <MenuDivider/>
                         <MenuItem>
                             <a href='#/.'><Text fontFamily='karla' fontWeight='bold' fontSize='1em'>Order Online</Text></a>
@@ -64,7 +81,7 @@ export default function Header() {
     }
 
     return(
-        <HStack px='8' py='2'>
+        <HStack px='8' py='2' id='Home'>
             <Flex w='100%'>
                 <img src={logo} alt='Little Lemon Logo' width='202px' height='74px'/>
             <Spacer/>

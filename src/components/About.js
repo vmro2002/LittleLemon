@@ -8,7 +8,7 @@ export default function About(){
     const [isLargerThan800] = useMediaQuery('(min-width: 1000px)')
 
     return(
-       <Stack direction={isLargerThan800? 'row' : 'column'} backgroundColor='#495E57'  justifyContent='center' alignItems='center' p={5} spacing={isLargerThan800? '20' : '0'}>
+       <Stack direction={isLargerThan800? 'row' : 'column'} backgroundColor='#495E57'  justifyContent='center' alignItems='center' p={5} spacing={isLargerThan800? '20' : '0'} id="About">
             <Image height={isLargerThan800? '500' : '300'} src={abtphoto} alt='Mario and Adrian' borderRadius='16'/>
             <Stack spacing={-10} direction = 'column'>
                 <Text fontFamily='Markazi Text' fontWeight='medium' fontSize='4em' color='#F4CE14'>Little Lemon </Text>
