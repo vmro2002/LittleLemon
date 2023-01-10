@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Highlights from './components/Highlights.js'
 import About from './components/About.js'
+import Footer from './components/Footer.js'
 import '@fontsource/karla'
 import '@fontsource/markazi-text'
 import theme from './theme'
@@ -18,7 +19,7 @@ function App() {
         <Highlights/>
         <About/>
       </main>
-      <footer></footer>
+      <Footer/>
     </ChakraProvider>
   );
 }
