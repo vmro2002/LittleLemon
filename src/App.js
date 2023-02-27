@@ -9,7 +9,7 @@ import Reserve from './components/Reserve.js'
 import '@fontsource/karla'
 import '@fontsource/markazi-text'
 import theme from './theme'
-import { Routes, Route,} from "react-router-dom";
+import { BrowserRouter, MemoryRouter, Routes, Route, HashRouter } from "react-router-dom";
 
 function Homepage(){
   return(
@@ -24,13 +24,11 @@ function Homepage(){
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Header/>
-      <main>
+        <Header/>
         <Routes>
           <Route path='/' element={<Homepage/>}/>
           <Route path='/Reservations' element={<Reserve/>}/>
         </Routes>
-      </main>
     </ChakraProvider>
   );
 }

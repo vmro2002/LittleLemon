@@ -22,6 +22,7 @@ import {fetchAPI, submitAPI} from './API'
 
 export default function Reserve(){
     const [isLargerThan800] = useMediaQuery('(min-width: 1000px)')
+    //let isLargerThan800 = true
     const [dateinput, setDateinput] = useState('')
     const [availabletimes, setAvailabletimes] = useState([])
     const [time, setTime] = useState('Select time')
@@ -65,7 +66,6 @@ export default function Reserve(){
                           noofguests: guests,
                           occasion: placeholder,
                           name: username}
-        console.log(formdata)
         let res = submitAPI(formdata)
         if (res === true) {
             setIsOpen(true)
@@ -87,16 +87,16 @@ export default function Reserve(){
                             <HStack>
                                 <Text fontFamily='Karla' fontSize='1em' fontWeight='bold'>Date</Text>
                                     <Spacer/>
-                                <input type='date' value={dateinput} onChange={e => setDateinput(e.target.value)} onBlur={e => updateTime(e)}/>
+                                <input type='date' value={dateinput} onChange={e => setDateinput(e.target.value)} onBlur={e => updateTime(e)} data-testid='dateselect'/>
                             </HStack>
                         </Box>
                         <Menu>
                             <MenuButton as={Button} variant='outline' borderWidth='1px' borderColor='black' rightIcon={time === 'Select time'?<FontAwesomeIcon icon={faChevronDown}/>:<FontAwesomeIcon icon={faChevronUp}/>} onClick={() => setTime("Select time")} minW='xs' py='7'>
                                 <Text fontFamily='Karla' fontSize='1em' fontWeight='bold'>{time}</Text>
                             </MenuButton>
-                             <MenuList minW='xs'>
+                             <MenuList minW='xs' data-testid='timelist'>
                                 {availabletimes.map((times) => (
-                                    <MenuItem justifyContent='center' onClick={() => setTime(times)}><Text fontFamily='Karla' fontSize='1em' fontWeight='bold'>{times}</Text></MenuItem>
+                                    <MenuItem justifyContent='center' onClick={() => setTime(times)} data-testid='timeitem'><Text fontFamily='Karla' fontSize='1em' fontWeight='bold'>{times}</Text></MenuItem>
                                 ))}
                             </MenuList>
                         </Menu>
@@ -106,7 +106,7 @@ export default function Reserve(){
                             </MenuButton>
                             <MenuList minW='xs'>
                                 {guestnum.map((guest) => (
-                                    <MenuItem justifyContent='center' onClick={() => setGuests(guest)}><Text fontFamily='Karla' fontSize='1em' fontWeight='bold'>{guest}</Text></MenuItem>
+                                    <MenuItem justifyContent='center' onClick={() => setGuests(guest)} data-testid='guestitem'><Text fontFamily='Karla' fontSize='1em' fontWeight='bold'>{guest}</Text></MenuItem>
                                  ))}
                             </MenuList>
                         </Menu>
@@ -120,7 +120,7 @@ export default function Reserve(){
                                 <MenuItem justifyContent='center' onClick={() => setPlaceholder("Engagement")}><Text fontFamily='Karla' fontSize='1em' fontWeight='bold'>Engagement</Text></MenuItem>
                             </MenuList>
                         </Menu>
-                        <Input maxW='xs' borderColor='black' borderWidth='1px' borderRadius='lg' py='7' placeholder="Please enter your name" value={username} onChange={e => setUsername(e.target.value)}/>
+                        <Input maxW='xs' borderColor='black' borderWidth='1px' borderRadius='lg' py='7' placeholder="Please enter your name" value={username} onChange={e => setUsername(e.target.value)} data-testid='nametest'/>
                         <Button colorScheme='yellow' type='submit' disabled={!formValid()} >Confirm Booking</Button>
                     </VStack>
                 </form>
