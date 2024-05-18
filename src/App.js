@@ -6,6 +6,7 @@ import Highlights from './components/Highlights.js'
 import About from './components/About.js'
 import Footer from './components/Footer.js'
 import Reserve from './components/Reserve.js'
+import Dashboard from './pages/Dashboard.js';
 import '@fontsource/karla'
 import '@fontsource/markazi-text'
 import theme from './theme'
@@ -28,6 +29,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Homepage/>}/>
           <Route path='/Reservations' element={<Reserve/>}/>
+          <Route path='/Dashboard' element={<Dashboard/>}/>
         </Routes>
     </ChakraProvider>
   );
