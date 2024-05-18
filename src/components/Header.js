@@ -10,6 +10,7 @@ import {
     MenuDivider,
   } from '@chakra-ui/react'
 import {Link} from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function Header() {
     const [isLargerThan800] = useMediaQuery('(min-width: 1000px)')
@@ -25,6 +26,20 @@ export default function Header() {
         }
       };
 
+
+    //loginWithRedirect function redirects the user to Auth0 authorization page
+    const { loginWithRedirect } = useAuth0();
+    
+    const handleLogin = async () => {
+
+        await loginWithRedirect({
+            //appState returnTo property is the path to the route once authorization is complete
+            appState: {
+              returnTo: "/dashboard",
+            },
+          });
+    }
+
     const HeaderOption = () => {
         if (isLargerThan800) {
             return(
@@ -34,7 +49,7 @@ export default function Header() {
                     <a href='#/.'><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>Menu</Text></a>
                     <Link to='/Reservations'><a href='#/Reservations'><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>Reservations</Text></a></Link>
                     <a href='#/.'><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>Order Online</Text></a>
-                    <a href='#/.'><Text fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>Log In</Text></a>
+                    <Text onClick={handleLogin} fontFamily='Karla' fontWeight='bold' fontSize='1.2em'>Log In</Text>
                 </HStack>
             )
         }
