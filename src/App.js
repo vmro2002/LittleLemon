@@ -11,6 +11,7 @@ import '@fontsource/karla'
 import '@fontsource/markazi-text'
 import theme from './theme'
 import { BrowserRouter, MemoryRouter, Routes, Route, HashRouter } from "react-router-dom";
+import { AuthenticationGuard } from './Utility/AuthenticationGuard.js';
 
 function Homepage(){
   return(
@@ -23,13 +24,14 @@ function Homepage(){
   )
 }
 function App() {
+
   return (
     <ChakraProvider theme={theme}>
         <Header/>
         <Routes>
           <Route path='/' element={<Homepage/>}/>
           <Route path='/Reservations' element={<Reserve/>}/>
-          <Route path='/Dashboard' element={<Dashboard/>}/>
+          <Route path='/Dashboard' element={<AuthenticationGuard component={Dashboard}/>}/>
         </Routes>
     </ChakraProvider>
   );
